@@ -4,6 +4,20 @@
 //M = 1; N = 15 -> 120
 //M = 4; N = 8. -> 30
 
+// Задача 66: Задайте значения M и N. 
+// Напишите программу, которая найдёт сумму натуральных элементов 
+// в промежутке от M до N.
+
+// M = 1; N = 15 -> 120
+
+// M = 4; N = 8. -> 30
+
+//Задача 66: Задайте значения M и N. 
+//Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+//M = 1; N = 15 -> 120
+//M = 4; N = 8. -> 30
+
 int GetDataFromUser(string text)//Запрос значений M и N.
 {
     bool flag = false;
@@ -30,6 +44,12 @@ int GetSumValues(int valueFirst, int valueLast)//Вывод суммы нату�
     }
 }
 
+int CheckValues(int valueFirst, int valueLast)//Проверяем, что число M > N. Меняем значения, если наоборот.
+{
+    if (valueFirst <= valueLast) return GetSumValues(valueFirst, valueLast);
+    else return GetSumValues(valueLast, valueFirst);
+}
+
 int valueFirst = GetDataFromUser("Введите число M: ");
 int valueLast = GetDataFromUser("Введите число N: ");
-Console.WriteLine($"Сумма элементов от {valueFirst} до {valueLast} = {GetSumValues(valueFirst, valueLast)}");
+Console.WriteLine($"Сумма элементов от {valueFirst} до {valueLast} = {CheckValues(valueFirst, valueLast)}");
