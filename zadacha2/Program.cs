@@ -35,21 +35,21 @@ int GetDataFromUser(string text)//Запрос значений M и N.
     return value;
 }
 
-int GetSumValues(int valueFirst, int valueLast)//Вывод суммы натуральных элементов в промежутке от M до N.
+int GetSumValues(int m, int n)//Вывод суммы натуральных элементов в промежутке от M до N.
 {
     {
-        if (valueFirst == valueLast) return valueLast;// Или 0? или нужно вывести сообщение, что M должно быть > N? 
+        if (m == n) return n;// Или 0? или нужно вывести сообщение, что M должно быть > N? 
         //В зависимости от уточнённых условий, от того, что считаем суммой натуральных элементов в случае, когда M = N.
-        else return valueLast + GetSumValues(valueFirst, valueLast - 1);
+        else return n + GetSumValues(m, n - 1);
     }
 }
 
-int CheckValues(int valueFirst, int valueLast)//Проверяем, что число M > N. Меняем значения, если наоборот.
+int CheckValues(int m, int n)//Проверяем, что число M > N. Меняем значения, если наоборот.
 {
-    if (valueFirst <= valueLast) return GetSumValues(valueFirst, valueLast);
-    else return GetSumValues(valueLast, valueFirst);
+    if (m <= n) return GetSumValues(m, n);
+    else return GetSumValues(n, m);
 }
 
-int valueFirst = GetDataFromUser("Введите число M: ");
-int valueLast = GetDataFromUser("Введите число N: ");
-Console.WriteLine($"Сумма элементов от {valueFirst} до {valueLast} = {CheckValues(valueFirst, valueLast)}");
+int m = GetDataFromUser("Введите число M: ");
+int n = GetDataFromUser("Введите число N: ");
+Console.WriteLine($"Сумма элементов от {m} до {n} = {CheckValues(m, n)}");
