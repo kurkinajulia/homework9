@@ -6,7 +6,7 @@
 //N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
 
-int GetSizeFromUser(string text)//Запрос значения N(size).
+int GetNumberFromUser(string text)//Запрос значения N.
 {
     bool flag = false;
     int value = 0;
@@ -23,12 +23,12 @@ int GetSizeFromUser(string text)//Запрос значения N(size).
     return value;
 }
 
-void GetResultFromSizeToOne(int size)//Вывод результата от N(size) до 1.
+void GetResultFromNToFirst(int n)//Вывод всех натуральных чисел в промежутке от N до 1.
 {
-    Console.Write($"{size} ");
-    if (size == 1) return;
-    else GetResultFromSizeToOne(size - 1);
+    Console.Write($"{n} ");
+    if (n == 1) return;
+    else GetResultFromNToFirst(n - 1);
 }
 
-int size = GetSizeFromUser("Введите натуральное число: ");
-GetResultFromSizeToOne(size);
+int n = GetNumberFromUser("Введите натуральное число: ");
+GetResultFromNToFirst(n);
