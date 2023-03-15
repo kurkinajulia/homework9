@@ -6,7 +6,7 @@
 //N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
 
 
-int GetNumberFromUser(string text)//Запрос значения N.
+int GetValueFromUser(string text)//Запрос значения N.
 {
     bool flag = false;
     int value = 0;
@@ -23,12 +23,12 @@ int GetNumberFromUser(string text)//Запрос значения N.
     return value;
 }
 
-void GetResultFromNToFirst(int n)//Вывод всех натуральных чисел в промежутке от N до 1.
+void GetResultFromValueToFirst(int n)//Вывод всех натуральных чисел в промежутке от N до 1.
 {
     Console.Write($"{n} ");
     if (n == 1) return;
-    else GetResultFromNToFirst(n - 1);
+    else GetResultFromValueToFirst(n - 1);
 }
 
-int n = GetNumberFromUser("Введите натуральное число: ");
-GetResultFromNToFirst(n);
+int n = GetValueFromUser("Введите натуральное число N: ");
+GetResultFromValueToFirst(n);
