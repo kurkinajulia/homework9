@@ -21,16 +21,15 @@ int GetValueFromUser(string text)//Запрос значений m и n.
     return value;
 }
 
-int CountAkkerman(int m, int n) //Вычисление функции Аккермана.
+int CountAkkerman(int m, int n)//Вычисление функции Аккермана.
 {
-    if (m == 0) ////Если m = 0, то n + 1.
+    if (m == 0)//Если m = 0, то n + 1.
         return n + 1;
     else
-    if ((m > 0) && (n == 0)) 
-        return CountAkkerman(m - 1, 1); //Если m > 0, n = 0, то A(m - 1, 1).
+    if ((m > 0) && (n == 0))
+        return CountAkkerman(m - 1, 1);//Если m > 0, n = 0, то A(m - 1, 1).
     else
-        return CountAkkerman(m - 1, CountAkkerman(m, n - 1)); 
-        //Если m > 0, n > 0, то A(m - 1, A(m, n - 1)).
+        return CountAkkerman(m - 1, CountAkkerman(m, n - 1));//Если m > 0, n > 0, то A(m - 1, A(m, n - 1)).
 }
 
 int m = GetValueFromUser("Введите первое число M: ");
